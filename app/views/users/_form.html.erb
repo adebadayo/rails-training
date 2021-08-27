@@ -16,7 +16,12 @@
     <%= form.text_field :name %>
   </div>
 
+  <div class="field">
+    <%= form.label :portrait %>
+    <%= form.file_field :portrait %>
+  </div>
+
   <div class="actions">
-    <%= form.submit data: { confirm: '実行してもよろしいですか？', disable_with: '送信中'} %>
+    <%= form.submit %>
   </div>
 <% end %>

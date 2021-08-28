@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     respond_to do |format|
+      byebug
       if @user.save
         UserMailer.with(to: @user.email, name: @user.name).welcome.deliver_now
         format.html { redirect_to @user, notice: "User was successfully created." }
@@ -65,6 +66,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :portrait)
+      params.require(:user).permit(:name, :portrait, :email)
     end
 end
